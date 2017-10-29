@@ -8,11 +8,15 @@ Google, Yandex, Bing, Yahoo arama motorlarına ait bir çok ip adresi kayıtlı 
 
 İp adreslerinin çoğu, "Robot whitelist" listesinden alınmıştır. Bir kısım ip adresi "Apache ultimate bad bot blocker" kaynaklıdır. Çok az ip adresi ise apache access_log analizlerime dayanmaktadır.
 
+## KAÇ IP ADRESİ KAYITLI?
+
+Kayıtlı olan data sayısı 9 bin sayısının üstündedir. Adresler CIDR değeri olarak kayıtlı olması sebebiyle bu sayı milyonlarca ip adresinin tek tek kayıtlı olması ile eş değerdir!
+
 ## VERİTABANI YAPISI NASILDIR?
 
 Veritabanı yapısı şu alanları barındırmaktadır:
 **id**: 	Auto Increment default değerdir, özel bir anlamı yoktur.
-**ip**: 	İsteğin ip adres değeri. Bu kısım saf ip şeklinde olabileceği gibi cidr değeri şeklinde de olabilir.
+**ip**: 	İsteğin ip adres değeri. Bu kısım saf ip (xxx.xxx.xxx.xxx) şeklinde olabileceği gibi CIDR değeri (xxx.xxx.xxx.x/xx) şeklinde de olabilir.
 **name**: 	IP Adresinin karşılık geldiği bir isim varsa onu belirtir.
 **status**:  İlgili IP adresine yönelik tavrımı gösterir
 **note**: Varsa özel not alanıdır. Banlanan ip adresleri için sebebi bu kısma girmekteyim.
@@ -52,3 +56,9 @@ sonra ilgili dosyadan 100'den az istekte bulunmuş ip adreslerini silin, listeyi
 
 * Kate
 * GitG
+
+##### TODO: Demo ;)
+
+##### NOTLAR
+
+* CIDR: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
