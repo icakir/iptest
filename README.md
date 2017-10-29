@@ -4,10 +4,9 @@
 
 İp adresinin daha önce sisteme kayıtlı olup olmadığını sorgulamaya yarar.
 
-Google, Yandex, Bing, Yahoo arama motorlarına ait bir çok ip adresi şu an kayıtlı durumdadır.
+Google, Yandex, Bing, Yahoo arama motorlarına ait bir çok ip adresi kayıtlı durumdadır.
 
-İlgili adreslerin bir kısmı şu kaynağa dayanmaktadır: https://www.ip2location.com/free/robot-whitelist
-Diğer kısımları kendi siteme gelen isteklerin access_log analizinden çıkartılmıştır
+İp adreslerinin çoğu, "Robot whitelist" listesinden alınmıştır. Bir kısım ip adresi "Apache ultimate bad bot blocker" kaynaklıdır. Çok az ip adresi ise apache access_log analizlerime dayanmaktadır.
 
 ## VERİTABANI YAPISI NASILDIR?
 
@@ -38,10 +37,18 @@ sonra ilgili dosyadan 100'den az istekte bulunmuş ip adreslerini silin, listeyi
 
 * PHP
 * MariaDB / MySQL
+
+## Kullanılan Kütüphaneler
+
 * AdoDB: http://adodb.org
 * IPv4 Subnet Calculator : https://github.com/markrogoyski/ipv4-subnet-calculator-php
 
-## KULLANILAN ARAÇLAR
+### Kullanılan Kaynaklar
+
+* Robot whitelist: https://www.ip2location.com/free/robot-whitelist
+* Apache ultimate bad bot blocker: https://github.com/mitchellkrogza/apache-ultimate-bad-bot-blocker
+
+## Kullanılan Yazılım Araçları
 
 * Kate
 * GitG
