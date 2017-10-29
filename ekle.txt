@@ -1,0 +1,2 @@
+xxx.xxx.xxx.x/24|malware|banlandı
+xxx.xxx.xxx.xxx|editör|allowed
