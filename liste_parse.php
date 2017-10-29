@@ -26,7 +26,7 @@ sayı ip_adresi
 	{
 		$sub		= new IPv4\SubnetCalculator( $ip, $cidr);
 		$cidr_ip	= $sub->getNetworkPortion().'/'.$cidr;
-		$sql		= 'OR name = "'.$cidr_ip.'"';
+		$sql		= 'OR ip = "'.$cidr_ip.'"';
 		return $sql;
 	}
 
@@ -79,10 +79,11 @@ sayı ip_adresi
 			$sonuc = $conn->GetRow($sql);
 			if($sonuc)
 			{
-				$_Hitted[$ip]['ip']			= $sonuc['ip'];
-				$_Hitted[$ip]['name'] 		= $sonuc['name'];
-				$_Hitted[$ip]['status']		= $sonuc['status'];
-				$_Hitted[$ip]['note']		= $sonuc['note'];
+				$_Hitted[$ip] = $sonuc['name'].' '.$sonuc['status'].' '.$sonuc['note'];
+				//$_Hitted[$ip]['ip']			= $sonuc['ip'];
+				//$_Hitted[$ip]['name'] 		= $sonuc['name'];
+				//$_Hitted[$ip]['status']		= $sonuc['status'];
+				//$_Hitted[$ip]['note']		= $sonuc['note'];
 			}
 			else
 			{
