@@ -44,7 +44,8 @@ sayı ip_adresi
 			$sql = 'SELECT
 						ip,
 						name,
-						status
+						status,
+						note
 					FROM
 						botlist
 					WHERE
@@ -79,16 +80,28 @@ sayı ip_adresi
 			$sonuc = $conn->GetRow($sql);
 			if($sonuc)
 			{
-				$_Hitted[$ip] = $sonuc['name'].' '.$sonuc['status'].' '.$sonuc['note'];
-				//$_Hitted[$ip]['ip']			= $sonuc['ip'];
-				//$_Hitted[$ip]['name'] 		= $sonuc['name'];
-				//$_Hitted[$ip]['status']		= $sonuc['status'];
-				//$_Hitted[$ip]['note']		= $sonuc['note'];
+				$_Hitted[$ip] = $sayi.' '.$sonuc['name'].' '.$sonuc['status'].' '.trim($sonuc['note']);
+				if($sonuc['status'] == 'banlandı')
+				{
+					unset($_Hitted[$ip]);
+					$_banlandi[$ip] = $sayi.' '.$sonuc['name'].' '.$sonuc['status'].' '.trim($sonuc['note']);
+				}
+
+				if($sonuc['status'] == 'warning')
+				{
+					unset($_Hitted[$ip]);
+					$_warned[$ip] = $sayi.' '.$sonuc['name'].' '.$sonuc['status'].' '.trim($sonuc['note']);
+				}
+
+				if($sonuc['status'] == 'allowed')
+				{
+					unset($_Hitted[$ip]);
+					$_allowed[$ip] = $sayi.' '.$sonuc['name'].' '.$sonuc['status'].' '.trim($sonuc['note']);
+				}
 			}
 			else
 			{
 				echo $sayi.' '.$ip.'<br/>';
-// 				$_Missing[$ip] = $sayi;
 			}
 		}
 		else
@@ -98,6 +111,16 @@ sayı ip_adresi
 	}
 	fclose($file);
 
+	echo '<hr/>warning';
+	print_pre($_warned);
+
+	echo '<hr/>banlandı';
+	print_pre($_banlandi);
+
+	echo '<hr/>allowed';
+	print_pre($_allowed);
+
+	echo '<hr/>diğer';
 	print_pre($_Hitted);
 	//print_pre($_Missing);
 	//print_pre($_Wronged);

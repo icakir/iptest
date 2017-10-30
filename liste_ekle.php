@@ -27,12 +27,14 @@ xxx.xxx.xxx.xxx|leaseweb|banlandı
 		$ploted[0] = trim($ploted[0]);
 		$ploted[1] = trim($ploted[1]);
 		$ploted[2] = trim($ploted[2]);
+		$ploted[3] = trim($ploted[3]);
 		//veritabanındaki kaydını alıp birleştirelim
 		unset($sql1,$sql2);
 		if($ploted[0] <> '' && $ploted[1] <> '')
 		{
 			//varsa önceki kaydını güncellemek amacıyla silelim
 			$sql1 = 'DELETE FROM botlist WHERE ip = "'.$ploted[0].'";';
+			//echo $sql1;
 			$conn->Execute($sql1);
 
 			//yeni kaydı ekleyelim
@@ -41,8 +43,10 @@ xxx.xxx.xxx.xxx|leaseweb|banlandı
 					SET
 						ip = "'.$ploted[0].'",
 						name = "'.$ploted[1].'",
-						status = "'.$ploted[2].'"
+						status = "'.$ploted[2].'",
+						note = "'.$ploted[3].'"
 					;';
+			//echo $sql2;
 			$conn->Execute($sql2);
 			echo '. ';
 		}
