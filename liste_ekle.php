@@ -19,6 +19,9 @@ xxx.xxx.xxx.xxx|leaseweb|banlandı
 	//dosyayı tek tek parse edip, ekrana basalım
 	$file = fopen('ekle.txt','r');
 
+	//dosya yoksa false dönelim
+	if(!file_exists($file)) return false;
+
 	while(!feof($file))
 	{
 		$ploted = explode("|", fgets($file));
@@ -46,7 +49,7 @@ xxx.xxx.xxx.xxx|leaseweb|banlandı
 						status = "'.$ploted[2].'",
 						note = "'.$ploted[3].'"
 					;';
-			//echo $sql2;
+			echo $sql2;
 			$conn->Execute($sql2);
 			echo '. ';
 		}

@@ -22,6 +22,9 @@ sayı ip_adresi
 	//dosyayı tek tek parse edip, ekrana basalım
 	$file = fopen('ip.txt','r');
 
+	//dosya yoksa false dönelim
+	if(!file_exists($file)) return false;
+
 	function create_sql($ip, $cidr)
 	{
 		$sub		= new IPv4\SubnetCalculator( $ip, $cidr);
