@@ -34,7 +34,7 @@ sayı ip_adresi
 	{
 		unset ( $sql, $ip, $expl, $sayi);
 
-		$expl 	= explode(" ", fgets($file));
+		$expl 	= explode(" ", trim(fgets($file)));
 		$sayi 	= intval($expl[0]);
 		$ip 	= trim($expl[1]);
 
