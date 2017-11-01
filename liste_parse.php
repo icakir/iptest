@@ -19,11 +19,14 @@ sayı ip_adresi
 	include 'inc/init.php';
 	include 'inc/SubnetCalculator.php';
 
-	//dosyayı tek tek parse edip, ekrana basalım
-	$file = fopen('ip.txt','r');
+	//dosyamızı tanımlayalım
+	$filelink = 'ip.txt';
 
 	//dosya yoksa false dönelim
-	if(!file_exists($file)) return false;
+	if(!file_exists($filelink)) return false;
+
+	//dosyayı tek tek parse edip, ekrana basalım
+	$file = fopen($filelink,'r');
 
 	function create_sql($ip, $cidr)
 	{

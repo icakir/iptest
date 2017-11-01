@@ -16,11 +16,14 @@ xxx.xxx.xxx.xxx|leaseweb|banlandı
 	define('APP', '1');
 	include 'inc/init.php';
 
-	//dosyayı tek tek parse edip, ekrana basalım
-	$file = fopen('ekle.txt','r');
+	//dosyamızı tanımlayalım
+	$filelink = 'ekle.txt';
 
 	//dosya yoksa false dönelim
-	if(!file_exists($file)) return false;
+	if(!file_exists($filelink)) return false;
+
+	//dosyayı tek tek parse edip, ekrana basalım
+	$file = fopen($filelink,'r');
 
 	while(!feof($file))
 	{
