@@ -62,3 +62,6 @@ sonra ilgili dosyadan 100'den az istekte bulunmuş ip adreslerini silin, listeyi
 ##### NOTLAR
 
 * CIDR: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+
+# License
+You may copy and reproduce the project under GPL V3 license.
